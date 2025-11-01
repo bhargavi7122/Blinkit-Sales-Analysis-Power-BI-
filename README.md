@@ -1,49 +1,35 @@
-## 📊 Power BI Dashboard Code (Blinkit Sales Analysis)
+# 🛒 Blinkit Sales Analysis Dashboard | Power BI  
 
-### 🧮 DAX Measures
+> 💼 *Transforming Blinkit grocery sales data into actionable insights using interactive Power BI visualizations.*
 
--- Total Sales
-Total_Sales = SUM(Blinkit[Item_Outlet_Sales])
+---
 
--- Average Sales
-Average_Sales = AVERAGE(Blinkit[Item_Outlet_Sales])
+## 📘 Project Overview  
+The **Blinkit Sales Analysis Dashboard** provides a complete view of the company’s sales performance across outlets, product categories, and locations.  
+It enables data-driven decision-making by uncovering insights on *sales trends, customer preferences, outlet performance,* and *product demand.*  
 
--- Total Items
-Total_Items = COUNT(Blinkit[Item_Identifier])
+This project focuses on converting raw Blinkit data into **interactive dashboards** using Power BI, helping stakeholders monitor key metrics such as **total sales, average ratings, and item performance.**
 
--- Average Rating
-Average_Rating = AVERAGE(Blinkit[Item_Weight])
+---
 
--- Maximum Sales
-Max_Sales = MAX(Blinkit[Item_Outlet_Sales])
+## 🎯 Objectives  
+- 📊 Evaluate *sales performance* across outlet types and item categories.  
+- 🛍 Identify *top-selling products* and *high-demand item types*.  
+- 🏬 Analyze *outlet size, location type,* and *sales contribution.*  
+- ⚙ Compare *fat content-based product performance.*  
+- 🎯 Build an *interactive Power BI dashboard* with dynamic KPIs and visuals.
 
--- Minimum Sales
-Min_Sales = MIN(Blinkit[Item_Outlet_Sales])
+---
 
--- Sales Target Achievement %
-Target_Achievement = DIVIDE([Total_Sales], 2400000) * 100
+## 💡 Key Insights  
 
--- Sales by Fat Content
-Sales_By_FatContent = CALCULATE(
-    [Total_Sales],
-    Blinkit[Item_Fat_Content] = "Regular"
-)
+### 🏆 Performance KPIs  
+| Metric | Value |
+|--------|--------|
+| 💵 *Total Sales* | ₹1.20 M |
+| 📦 *Total Items* | 8,523 |
+| ⭐ *Average Rating* | 3.92 |
+| 💰 *Average Sales* | ₹140.99 |
+| 🎯 *Sales Target %* | 50 % of Goal (2.4 M) |
 
--- Sales by Outlet Type
-Sales_By_OutletType = CALCULATE(
-    [Total_Sales],
-    Blinkit[Outlet_Type] = "Supermarket Type1"
-)
-
--- Total Sales by Location Tier
-Sales_By_Location = SUMMARIZE(
-    Blinkit,
-    Blinkit[Outlet_Location_Type],
-    "Total Sales", [Total_Sales]
-)
-
--- Yearly Sales (if Date available)
-Yearly_Sales = CALCULATE(
-    [Total_Sales],
-    YEAR(Blinkit[Date]) = 2023
-)
+> 📊 **Supermarket Type 1** outlets generate the highest sales, while *Tier 3 cit*
